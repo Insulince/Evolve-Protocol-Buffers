@@ -1,0 +1,22 @@
+syntax = "proto3";
+package evolve;
+option go_package = "./pb";
+
+// MODELS
+message Evolve {
+    int64 a = 1;
+}
+
+// REQUEST AND RESPONSE TYPES
+message EvolveRequest {
+    Evolve evolve = 1;
+}
+
+message EvolveResponse {
+    bool success = 1;
+}
+
+// SERVICE
+service EvolveService {
+    rpc Evolve (EvolveRequest) returns (EvolveResponse);
+}
