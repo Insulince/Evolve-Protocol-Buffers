@@ -12,7 +12,7 @@ export PATH="$PATH:$1"
 # --js_out = Generates the JavaScript for RPC specification and where to put it.
 # --ts_out = Generated the TypeScript type definitions for the RPC specification and where to put it.
 # Lastly is/are the protoc argument(s) which is/are what file(s) to compile.
-protoc --plugin="protoc-gen-ts=../ui/node_modules/.bin/protoc-gen-ts" -I="./src" --go_out=plugins=grpc:"../rpc/pkg" --js_out="import_style=commonjs,binary:../ui/src/app/pb" --ts_out="../ui/src/app/pb" "./src/evolve.proto"
+protoc --plugin=protoc-gen-ts="../ui/node_modules/.bin/protoc-gen-ts" -I="./src" --go_out=plugins=grpc:"../rpc/pkg" --js_out=import_style=commonjs,binary:"../ui/src/app/pb" --ts_out=service=true:"../ui/src/app/pb" "./src/evolve.proto"
 
 # No-op command to indicate success to the user.
 : ================================================== SUCCESS ==================================================
