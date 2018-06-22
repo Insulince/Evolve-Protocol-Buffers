@@ -16,3 +16,4 @@ protoc --plugin=protoc-gen-ts="../ui/node_modules/.bin/protoc-gen-ts" -I="./src"
 
 # No-op command to indicate success to the user.
 : ================================================== SUCCESS ==================================================
+
