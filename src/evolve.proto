@@ -2,21 +2,26 @@ syntax = "proto3";
 package evolve;
 option go_package = "./pb";
 
-// MODELS
-message Evolve {
-    int64 a = 1;
+////////// MODELS //////////
+
+message CreatureMessage {
+    string name = 1;
+    int64 generation = 2;
+    double speed = 3;
+    double stamina = 4;
+    double health = 5;
+    double greed = 6;
 }
 
-// REQUEST AND RESPONSE TYPES
-message EvolveRequest {
-    Evolve evolve = 1;
-}
+////////// SERVICES //////////
 
-message EvolveResponse {
-    bool success = 1;
+// Creature Service
+service CreatureService {
+    rpc GenerateCreatureRpc (GenerateCreatureRpcRequest) returns (GenerateCreatureRpcResponse);
 }
-
-// SERVICE
-service EvolveService {
-    rpc Evolve (EvolveRequest) returns (EvolveResponse);
+// GenerateCreatureRpc request/response Models
+message GenerateCreatureRpcRequest {
+}
+message GenerateCreatureRpcResponse {
+    CreatureMessage creature = 1;
 }
