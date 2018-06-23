@@ -4,11 +4,11 @@
 set -x
 
 : ------------------- VARIABLES AND VALUES -------------------
-: PROTOC_GEN_GO_LOCATION = ${PROTOC_GEN_GO_LOCATION}
-: PROTOC_GEN_TS_LOCATION = ${PROTOC_GEN_TS_LOCATION}
-: GO_OUTPUT_LOCATION = ${GO_OUTPUT_LOCATION}
-: JS_OUTPUT_LOCATION = ${JS_OUTPUT_LOCATION}
-: TS_OUTPUT_LOCATION = ${TS_OUTPUT_LOCATION}
+: PROTOC_GEN_GO_LOCATION = ${PROTOC_GEN_GO_LOCATION} # Location of protoc-gen-go executable's parent directory, should probably be "~/Go/bin".
+: PROTOC_GEN_TS_LOCATION = ${PROTOC_GEN_TS_LOCATION} # Location of protoc-gen-ts executable, should probably be "<evolve-ui-project-root>/node_modules/.bin", after running npm install on evolve-ui.
+: GO_OUTPUT_LOCATION = ${GO_OUTPUT_LOCATION} # Location to place generated Go files, should probably be "<evolve-rpc-project-root>/pkg/pb". Make sure this destination already exists.
+: JS_OUTPUT_LOCATION = ${JS_OUTPUT_LOCATION} # Location to place generated JS files, should probably be "<evolve-ui-project-root>/src/app/pb". Make sure this destination already exists.
+: TS_OUTPUT_LOCATION = ${TS_OUTPUT_LOCATION} # Location to place generated TS files, should probably be the same as JS_OUTPUT_LOCATION.
 
 : ------------------- PROCEDURE -------------------
 # Puts the path to "protoc-gen-go" in your PATH variable for this bash session. This MUST be provided as an environment variable for this script for it to function (at least on my machine).
