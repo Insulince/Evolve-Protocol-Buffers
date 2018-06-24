@@ -19,17 +19,33 @@ message CreatureMessage {
 service CreatureService {
     rpc GenerateCreatureRpc (GenerateCreatureRpcRequest) returns (GenerateCreatureRpcResponse);
     rpc GenerateCreaturesRpc (GenerateCreaturesRpcRequest) returns (stream GenerateCreaturesRpcResponse);
+    rpc SimulateCreatureRpc (SimulateCreatureRpcRequest) returns (SimulateCreatureRpcResponse);
+    rpc SimulateCreaturesRpc (stream SimulateCreaturesRpcRequest) returns (stream SimulateCreaturesRpcResponse);
 }
 // GenerateCreatureRpc request/response Models
 message GenerateCreatureRpcRequest {
 }
 message GenerateCreatureRpcResponse {
-    CreatureMessage creature = 1;
+    CreatureMessage creatureMessage = 1;
 }
 // GenerateCreaturesRpc request/response Models
 message GenerateCreaturesRpcRequest {
     int64 quantity = 1;
 }
 message GenerateCreaturesRpcResponse {
-    CreatureMessage creature = 1;
+    CreatureMessage creatureMessage = 1;
+}
+// SimulateCreatureRpc request/response Models
+message SimulateCreatureRpcRequest {
+    CreatureMessage creatureMessage = 1;
+}
+message SimulateCreatureRpcResponse {
+    CreatureMessage creatureMessage = 1;
+}
+// SimulateCreaturesRpc request/response Models
+message SimulateCreaturesRpcRequest {
+    CreatureMessage creatureMessage = 1;
+}
+message SimulateCreaturesRpcResponse {
+    CreatureMessage creatureMessage = 1;
 }
