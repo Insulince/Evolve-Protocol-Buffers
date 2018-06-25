@@ -11,6 +11,8 @@ message CreatureMessage {
     double stamina = 4;
     double health = 5;
     double greed = 6;
+    double fitnessValue = 7;
+    bool simulatedThisGeneration = 8;
 }
 
 ////////// SERVICES //////////
@@ -18,9 +20,9 @@ message CreatureMessage {
 // Creature Service
 service CreatureService {
     rpc GenerateCreatureRpc (GenerateCreatureRpcRequest) returns (GenerateCreatureRpcResponse);
-    rpc GenerateCreaturesRpc (GenerateCreaturesRpcRequest) returns (stream GenerateCreaturesRpcResponse);
+    rpc GenerateCreaturesRpc (GenerateCreaturesRpcRequest) returns (GenerateCreaturesRpcResponse);
     rpc SimulateCreatureRpc (SimulateCreatureRpcRequest) returns (SimulateCreatureRpcResponse);
-    rpc SimulateCreaturesRpc (stream SimulateCreaturesRpcRequest) returns (stream SimulateCreaturesRpcResponse);
+    rpc SimulateCreaturesRpc (SimulateCreaturesRpcRequest) returns (SimulateCreaturesRpcResponse);
 }
 // GenerateCreatureRpc request/response Models
 message GenerateCreatureRpcRequest {
@@ -33,7 +35,7 @@ message GenerateCreaturesRpcRequest {
     int64 quantity = 1;
 }
 message GenerateCreaturesRpcResponse {
-    CreatureMessage creatureMessage = 1;
+    repeated CreatureMessage creatureMessages = 1;
 }
 // SimulateCreatureRpc request/response Models
 message SimulateCreatureRpcRequest {
@@ -44,8 +46,8 @@ message SimulateCreatureRpcResponse {
 }
 // SimulateCreaturesRpc request/response Models
 message SimulateCreaturesRpcRequest {
-    CreatureMessage creatureMessage = 1;
+    repeated CreatureMessage creatureMessages = 1;
 }
 message SimulateCreaturesRpcResponse {
-    CreatureMessage creatureMessage = 1;
+    repeated CreatureMessage creatureMessages = 1;
 }
