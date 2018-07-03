@@ -13,6 +13,8 @@ message CreatureMessage {
     double greed = 6;
     double fitnessValue = 7;
     bool simulatedThisGeneration = 8;
+    string outcome = 9;
+    bool naturallySelectedThisGeneration = 10;
 }
 
 ////////// SERVICES //////////
@@ -23,6 +25,12 @@ service CreatureService {
     rpc GenerateCreaturesRpc (GenerateCreaturesRpcRequest) returns (GenerateCreaturesRpcResponse);
     rpc SimulateCreatureRpc (SimulateCreatureRpcRequest) returns (SimulateCreatureRpcResponse);
     rpc SimulateCreaturesRpc (SimulateCreaturesRpcRequest) returns (SimulateCreaturesRpcResponse);
+    rpc NaturallySelectCreatureRpc (NaturallySelectCreatureRpcRequest) returns (NaturallySelectCreatureRpcResponse);
+    rpc NaturallySelectCreaturesRpc (NaturallySelectCreaturesRpcRequest) returns (NaturallySelectCreaturesRpcResponse);
+    rpc KillFailedCreatureRpc (KillFailedCreatureRpcRequest) returns (KillFailedCreatureRpcResponse);
+    rpc KillFailedCreaturesRpc (KillFailedCreaturesRpcRequest) returns (KillFailedCreaturesRpcResponse);
+    rpc ReproduceSuccessfulCreatureRpc (ReproduceSuccessfulCreatureRpcRequest) returns (ReproduceSuccessfulCreatureRpcResponse);
+    rpc ReproduceSuccessfulCreaturesRpc (ReproduceSuccessfulCreaturesRpcRequest) returns (ReproduceSuccessfulCreaturesRpcResponse);
 }
 // GenerateCreatureRpc request/response Models
 message GenerateCreatureRpcRequest {
@@ -49,5 +57,45 @@ message SimulateCreaturesRpcRequest {
     repeated CreatureMessage creatureMessages = 1;
 }
 message SimulateCreaturesRpcResponse {
+    repeated CreatureMessage creatureMessages = 1;
+}
+// NaturallySelectCreatureRpc request/response Models
+message NaturallySelectCreatureRpcRequest {
+    CreatureMessage creatureMessage = 1;
+}
+message NaturallySelectCreatureRpcResponse {
+    CreatureMessage creatureMessage = 1;
+}
+// NaturallySelectCreaturesRpc request/response Models
+message NaturallySelectCreaturesRpcRequest {
+    repeated CreatureMessage creatureMessages = 1;
+}
+message NaturallySelectCreaturesRpcResponse {
+    repeated CreatureMessage creatureMessages = 1;
+}
+// KillFailedCreatureRpc request/response Models
+message KillFailedCreatureRpcRequest {
+    CreatureMessage creatureMessage = 1;
+}
+message KillFailedCreatureRpcResponse {
+}
+// KillFailedCreaturesRpc request/response Models
+message KillFailedCreaturesRpcRequest {
+    repeated CreatureMessage creatureMessages = 1;
+}
+message KillFailedCreaturesRpcResponse {
+}
+// ReproduceSuccessfulCreatureRpc request/response Models
+message ReproduceSuccessfulCreatureRpcRequest {
+    CreatureMessage creatureMessage = 1;
+}
+message ReproduceSuccessfulCreatureRpcResponse {
+    CreatureMessage creatureMessage = 1;
+}
+// ReproduceSuccessfulCreaturesRpc request/response Models
+message ReproduceSuccessfulCreaturesRpcRequest {
+    repeated CreatureMessage creatureMessages = 1;
+}
+message ReproduceSuccessfulCreaturesRpcResponse {
     repeated CreatureMessage creatureMessages = 1;
 }
