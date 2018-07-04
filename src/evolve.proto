@@ -90,7 +90,7 @@ message ReproduceSuccessfulCreatureRpcRequest {
     CreatureMessage creatureMessage = 1;
 }
 message ReproduceSuccessfulCreatureRpcResponse {
-    CreatureMessage creatureMessage = 1;
+    repeated CreatureMessage creatureMessages = 1;
 }
 // ReproduceSuccessfulCreaturesRpc request/response Models
 message ReproduceSuccessfulCreaturesRpcRequest {
