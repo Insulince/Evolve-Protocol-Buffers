@@ -12,11 +12,13 @@ message CreatureMessage {
     double stamina = 4; // Stamina attirbute.
     double health = 5; // Health attribute.
     double greed = 6; // Greed attribute.
+    double chanceOfMutation = 12;
     double fitnessValue = 7; // How fit this creature is based on the simulation.
     bool simulatedThisGeneration = 8; // Flag for if this creature has already been simulated.
     string outcome = 9; // Outcome (enum) of natural selection. TODO: Rename.
     bool naturallySelectedThisGeneration = 10; // Flag for if this creature has already been naturally selected.
     int64 fitnessIndex = 11; // Where the creature ranks amongst its peers. Should be used in conjunction with a population message.
+    bool mutatedThisGeneration = 13;
 }
 
 // Information about a generation of creatures (deemed a "population").
