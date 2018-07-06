@@ -22,6 +22,7 @@ message CreatureMessage {
 // Information about a generation of creatures (deemed a "population").
 message PopulationMessage {
     int64 size = 1; // The size of the population of creatures for this generation.
+    int64 carryingCapacity = 2;
 }
 
 ////////// SERVICES //////////
